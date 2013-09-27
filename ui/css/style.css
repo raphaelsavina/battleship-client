@@ -1,0 +1,116 @@
+ul,li,div,body,h1,h2,h3{padding:0; margin:0;}
+body{background-color:#effef;font-family:Arial, Helvetica, sans-serif;}
+ul li {list-style:none;}
+.clear{clear:both;}
+
+.header{background-color:#202020;}
+.header h1{padding:20px; color:#FFFFFF;font-family:Electrolize;}
+.menu li{float:left;}
+.menu a{display:block;text-decoration:none;color:#CCCCCC;padding:1em;}
+.menu a:hover{background-color:#303030;color:#FFFFFF;}
+
+.body{margin:auto; max-width:1200px; width:100%;}
+
+.form-signin {width: 350px;margin: 50px auto;text-align: center}
+
+.playerContainer{float:left; margin-top:20px;margin-right:10px;}
+.playerContainer .player-name {font-weight: bold;font-size: 18px;line-height: 18px;margin-right:20px;}
+.playerContainer .badge {}
+.playerContainer .log {display:none;}
+.playerContainer .shoots b{font-size: 30px;}
+.playerContainer .shoots {float: right}
+
+ul.board {border-right:1px solid #ccc;border-bottom:1px solid #ccc;overflow:hidden;margin-top:10px;}
+.board li{border-left:1px solid #ccc;border-top:1px solid #ccc;width:5px; height:5px;float:left;}
+.board .position {background-color: black;}
+.board .hit{background-color:orange;}
+.board .miss{background-color:#ccccff;}
+.board .hitsunk{background-color:red;}
+.board .samespot{background-color:black;}
+.board .decision {background-color: green;}
+.board .impossible {background-color: red;}
+
+#winner {position: absolute;width: 500px;height: 150px;top: 50%;left: 50%;margin-top: -75px;margin-left: -250px;background-color: #fff;text-align: center;padding: 20px 0;font-size: 20px;border: 2px solid #000;}
+#winner .winner {font-size: 26px;color: green;}
+
+.available-ships {overflow: hidden;}
+.available-ships li {width: 5px;height: 5px;background-color: #ccc;float: left;}
+.available-ships .ship li.shape {background-color: black;}
+.available-ships ul {width: 40px;float: left;margin: 5px;}
+.available-ships ul.dragging {opacity: 0.3;}
+
+.ship.s3 li {
+    background: #1ab0ff;
+}
+
+.ship.enterprise li {
+    background: #c2ffe9;
+}
+
+.ship.chess li {
+    background: #ff4bbc;
+}
+
+.ship.kursk li {
+    background: #ff9821;
+}
+
+.ship.crab li {
+    background: #c2d0ff;
+}
+
+.ship.death_star li {
+    background: #02a616;
+}
+
+.ship.worm li {
+    background: #febbc0;
+}
+
+.ship.a li {
+    background: #cb00d3;
+}
+
+.ship.ubot li {
+    background: #ff331f;
+}
+
+.ship.o li {
+    background: #fffb01;
+}
+
+.ship.l li {
+    background: #b01d26;
+}
+
+.ship.tie_fighter li {
+    background: #666666;
+}
+
+.ship.carrier li {
+    background: #3a468c;
+}
+
+.ship.s1 li {
+    background: #ffbcf1;
+}
+
+.ship.battleship li {
+    background: wheat;
+}
+
+.ship.submarine li {
+    background: #8c8b20;
+}
+
+.ship.cruiser li {
+    background: #ffacac;
+}
+
+.ship.patrol li {
+    background: #ff4bbc;
+}
+
+
+
+
