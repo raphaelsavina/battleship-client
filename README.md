@@ -6,6 +6,8 @@ https://docs.google.com/document/d/1iwjkFx5h3VZUvdAOK9Gryzs0Y7uPgobIVwfs-OBnBdo/
 
 PRODUCTION ENV1
 
+GAME API    http://battleship-env-1.elasticbeanstalk.com/
+
 Server UI		http://battleship-env-1.elasticbeanstalk.com/ui/index.html
 
 Client UI		http://battleship-env-1.elasticbeanstalk.com/client/index.html
