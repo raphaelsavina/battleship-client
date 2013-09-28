@@ -194,7 +194,7 @@ $(function() {
                 boardStatusArray[i] = 0;
             }
 
-            // TODO: implement your algorithm here
+            /* TODO: implement your algorithm here
 
             var enterprise = [[{
                 "x" : 6,
@@ -912,7 +912,7 @@ $(function() {
             }, {
                 "x" : 1,
                 "y" : 0
-            }]];
+            }]];*/
 
             this.nextShootX = -1;
             this.nextShootY = -1;
