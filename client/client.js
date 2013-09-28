@@ -3,11 +3,12 @@ $(function() {
     var countL = 0;
     var countuB = 0;
     var countW = 0;
+    var kurskV = 0;
 
     var CLIENT = {
         token : $.cookie('token'),
         //        serverUrl: "http://battleships/", /* UPDATE HERE */
-        serverUrl : "http://battleship-env-1.elasticbeanstalk.com/", /* UPDATE HERE */
+        serverUrl : "http://battleships-master-env-kummkavdrx.elasticbeanstalk.com/", /* UPDATE HERE */
         body : $(".body"),
         header : $(".header"),
         name : 'Player',
@@ -955,6 +956,16 @@ $(function() {
                                 //console.log("This is a Chess");
                                 that.nextShootX = data.x + 1;
                             }
+
+                            if (data.ship_type == "kursk"){
+                                if (kurskV == 0) { 
+                                //console.log("This is a Chess");
+                                    that.nextShootX = data.x + 3;
+                                    kurskV = kurskV + 1;
+                                }
+                            }
+
+
                             if (data.ship_type == "o"){
                                 //console.log("This is a O");
                                 that.nextShootX = data.x + 1;
