@@ -1,5 +1,8 @@
 $(function() {
     console.log("Battleship Client");
+    var countL = 0;
+    var countuB = 0;
+    var countW = 0;
 
     var CLIENT = {
         token : $.cookie('token'),
@@ -12,6 +15,7 @@ $(function() {
         currentGameId : "",
         nextShootX : -1,
         nextShootY : -1,
+ 
         serverUrlWithToken : function() {
             return this.serverUrl + this.token + "/";
         },
@@ -187,12 +191,6 @@ $(function() {
         },
 
         startShooting : function() {
-
-            var boardStatusArray = new Array();
-            var i;
-            for ( i = 0; i < this.currentGame.width * this.currentGame.height; i++) {
-                boardStatusArray[i] = 0;
-            }
 
             /* TODO: implement your algorithm here
 
@@ -923,19 +921,14 @@ $(function() {
                 that.shootRequest(that.nextShootX, that.nextShootY);
             });
         },
+
         determineNextShootXY : function(callback) {
-            if (this.currentGame.width > 20) {
-                var cellWidth = this.currentGame.width / 5, cellHeight = this.currentGame.height / 5;
-
-                var targetedCell = Math.floor((Math.random() * 25) + 1);
-
-            }
             if (this.nextShootX + 1 < this.currentGame.width) {
-                this.nextShootX=this.nextShootX+4;
+                this.nextShootX=this.nextShootX+1;
                 callback();
             } else if (this.nextShootY + 1 < this.currentGame.height) {
                 this.nextShootX = 0;
-                this.nextShootY=this.nextShootY+2;
+                this.nextShootY=this.nextShootY+1;
                 callback();
             } else {
                 alert('end of shooting');
@@ -944,16 +937,47 @@ $(function() {
         shootRequest : function(x, y) {
             var that = this;
             var url = this.shootUrl(x, y) + "&callback=?";
+     
+
             $.ajax({
                 url : url,
                 dataType : 'jsonp',
                 async : false,
                 success : function(data) {
-                    console.log("Shooting at: " + that.nextShootX + "x" + this.nextShootY);
-                    console.log("Ship Hit Status"+data.ship_status);
+                    //console.log("Status " + data.ship_status);
+                    //console.log("X " + data.x);
+                    //console.log("Y " + data.y);
+                    if (data.ship_status == "sunk"){
+                        that.nextShootX = data.x + 1;
+                    } else {
+                        if (data.ship_status == "hit"){
+                            if (data.ship_type == "chess"){
+                                //console.log("This is a Chess");
+                                that.nextShootX = data.x + 1;
+                            }
+                            if (data.ship_type == "o"){
+                                //console.log("This is a O");
+                                that.nextShootX = data.x + 1;
+                            }                       
+                            if (data.ship_type == "l"){
+                                //console.log("This is a L");
+                                countL = countL + 1;
+                                console.log("Count L" + countL);
+                                if(countL <= 4){
+                                    that.nextShootX = data.x + 1;
+                                }
+                            } 
+                            if (data.ship_type == "uBoot"){
+                                countuB = countuB + 1;
+                                if(countuB < 7){
+                                    that.nextShootX = data.x + 1;
+                                }     
+                            }    
+                        }
+                    };
+
                     that.determineNextShootXY(function() {
                         that.shootRequest(that.nextShootX, that.nextShootY);
-                        
                     });
                 },
                 error : function(jqXHR, textStatus, errorThrown) {
