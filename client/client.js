@@ -259,7 +259,7 @@ $(function() {
             if (this.currentGame.width > 20) {
                 var cellWidth = currentGame.width / 5;
                 var cellHeight = currentGame.height / 5;
-                Math.floor((Math.random() * 25) + 1);
+                var targetedCell = Math.floor((Math.random() * 25) + 1);
 
             }
             if (this.nextShootX + 1 < this.currentGame.width) {
