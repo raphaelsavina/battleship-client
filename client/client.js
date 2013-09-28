@@ -925,8 +925,8 @@ $(function() {
         },
         determineNextShootXY : function(callback) {
             if (this.currentGame.width > 20) {
-                var cellWidth = currentGame.width / 5;
-                var cellHeight = currentGame.height / 5;
+                var cellWidth = this.currentGame.width / 5, cellHeight = this.currentGame.height / 5;
+
                 var targetedCell = Math.floor((Math.random() * 25) + 1);
 
             }
